@@ -8,36 +8,30 @@ This repository contains my implementation of the [Udacity Deep Reinforcement Le
 
 For this project, you will work with the [Tennis](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#tennis) environment.
 
-In this environment, two agents control rackets to bounce a ball over a net. If an agent hits the ball over the net, it receives a reward of +0.1. If an agent lets a ball hit the ground or hits the ball out of bounds, it receives a reward of -0.01. Thus, the goal of each agent is to keep the ball in play.
-
-The observation space consists of 8 variables corresponding to the position and velocity of the ball and racket. Each agent receives its own, local observation. Two continuous actions are available, corresponding to movement toward (or away from) the net, and jumping.
+In this environment, **two agents** (hence, 'multi-agent') control rackets to bounce a ball over a net. If an agent hits the ball over the net, it receives a reward of `+0.1`. If an agent lets a ball hit the ground or hits the ball out of bounds, it receives a reward of `-0.01`. Thus, the goal of each agent is to keep the ball in play.
 
 ![Collaboration and competition animation](images/tennis.png)
 
-### Rewards
-
-If an agent hits the ball over the net, it receives a reward of +0.1. If an agent lets a ball hit the ground or hits the ball out of bounds, it receives a reward of -0.01.
-
 ### Observation Space  
 
-The observation space consists of 8 variables corresponding to the position and velocity of the ball and racket. Each agent receives its own, local observation.
-
-![observation space](images/observation_space.png)
+The observation space consists of `8` variables corresponding to the position and velocity of the ball and racket. Each agent receives its own, local observation.
 
 ### Actions  
 
-Two **continuous actions** are available, corresponding to movement toward (or away from) the net, and jumping.
+Two (`2`) **continuous actions** are available, corresponding to movement toward (or away from) the net, and jumping.
 
-![action space](images/action_space.png)
+### Rewards
+
+If an agent hits the ball over the net, it receives a reward of `+0.1`. If an agent lets a ball hit the ground or hits the ball out of bounds, it receives a reward of `-0.01`.
 
 ### The setting and the goal
 
-The task is episodic, and in order to solve the environment, your agents must get an average score of +0.5 (over 100 consecutive episodes, after taking the maximum over both agents). Specifically,
+The task is episodic, and in order to solve the environment, your agents must get an average score of `+0.5` (over `100` consecutive episodes, after taking the maximum over both agents). Specifically,
 
-* After each episode, we add up the rewards that each agent received (without discounting), to get a score for each agent. This yields 2 (potentially different) scores. We then take the maximum of these 2 scores.
+* After each episode, we add up the rewards that each agent received (without discounting), to get a score for each agent. This yields `2` (potentially different) scores. We then take the maximum of these `2` scores.
 * This yields a single score for each episode.
 
-The environment is considered solved, when the average (over 100 episodes) of those scores is at least +0.5.
+The environment is considered solved, when the average (over `100` episodes) of those scores is at least `+0.5`.
 
 <br>
 
@@ -78,7 +72,7 @@ After you have followed the instructions above, open `Tennis_v2.ipynb`  and foll
 
 Execute the provided notebook: `Tennis_v2.ipynb`
 
-1. `model.py` implements the Deep Deterministic Polich Gradient (DDPG) Actor and Critic networks. This currently contains fully-connected neural network with ReLU activation. You can change the structure of the neural network and play with it. I used 2 hidden layers, [batch normalization](http://proceedings.mlr.press/v37/ioffe15.pdf), and dropout[1](https://arxiv.org/pdf/1207.0580.pdf)[2](http://www.cs.toronto.edu/~rsalakhu/papers/srivastava14a.pdf) in the both of the Actor and Critic networks.
+1. `model.py` implements the Deep Deterministic Polich Gradient (DDPG) Actor and Critic networks. This currently contains fully-connected neural network with ReLU activation, along with the [Batch normalization](http://proceedings.mlr.press/v37/ioffe15.pdf) and a dropout layer[[1]](https://arxiv.org/pdf/1207.0580.pdf)[[2]](http://www.cs.toronto.edu/~rsalakhu/papers/srivastava14a.pdf). You can change the structure of the neural network and play with it. 
    > Deep Deterministic Policy Gradient (DDPG) is a model-free off-policy algorithm for learning continous actions. It combines ideas from DPG (Deterministic Policy Gradient) and DQN (Deep Q-Network). It uses Experience Replay and slow-learning target networks from DQN, and it is based on DPG, which can operate over continuous action spaces. [source](https://keras.io/examples/rl/ddpg_pendulum/)
 
 2. `ddpg_agent_v2.py` implementss the Agent, OUNoise, and ReplayBuffer. The Agent has Actor network and Critic network. Actor network proposes an action given an state and Critic network predicts if the action is good or bad given a state and an action. Each Actor and Critic network has local and target network. For continuous action spaces, exploration is done via adding noise to the action and the authors of the paper, [Lillicrap, Timothy P., et al. "Continuous control with deep reinforcement learning." arXiv preprint arXiv:1509.02971 (2015).,](https://arxiv.org/pdf/1509.02971.pdf), used Ornstein-Uhlenbeck process.
