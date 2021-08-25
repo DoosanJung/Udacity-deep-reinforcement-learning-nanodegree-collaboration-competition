@@ -33,10 +33,11 @@ The task is episodic, and in order to solve the environment, your agents must ge
 
 The environment is considered solved, when the average (over `100` episodes) of those scores is at least `+0.5`.
 
-<br>
 
 ### Note
 The project environment is similar to, but not identical to the Tennis environment on the [Unity ML-Agents GitHub page](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md).
+
+<br>
 
 ## Getting Started
 
