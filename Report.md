@@ -142,17 +142,17 @@ Given the chosen architecture and parameters, the result looks like below:
 In the training result below, I printed out the average score (over the 100 episodes) and the current maximum score so far. 
 ![Training results](images/results.png)
 
-The environment was in 4338 episodes. I validated the average score using the latest `scores_window`. The average of the 100 episodes' score should equal to `0.5069`. In the last episode, the agents were able to receive score of `2.50000004` and `2.60000004`.
+The environment was in `4338` episodes. I validated the average score using the latest `scores_window`. The average of the 100 episodes' score should equal to `0.5069`. In the last episode, the agents were able to receive score of `2.50000004` and `2.60000004`.
 
 ![Training result_confirmation](images/result_confirmation.png)
 
 
 #### Scores
 
-This plot shows the time series of the maximum score (of a given episode) for the entire 4338 episodes. There were 4338 episodes in total in the result and it matches with the x-axis. The latest episode had `2.6` as the maximum score (which is `max(2.50000004 and 2.60000004)`).
+This plot shows the time series of the maximum score (of a given episode) for the entire `4338` episodes. There were `4338` episodes in total in the result and it matches with the x-axis. The latest episode had `2.6` as the maximum score (which is `max(2.50000004 and 2.60000004)`).
 ![Score plot (training)](images/max_score_per_episode_full_episodes.png)
 
-The follolwing plot shows the time series of the maximum score (of a given episode) for the last 100 episodes. For the lastest 100 episodes, the maximum score (from any of the two agents) are shown in the graph.
+The follolwing plot shows the time series of the maximum score (of a given episode) for the last `100` episodes. For the lastest `100` episodes, the maximum score (from any of the two agents) are shown in the graph.
 ![Score plot (training)](images/max_score_per_episode_last_100_episodes.png)
 
 #### Watch the trained agent's performace
